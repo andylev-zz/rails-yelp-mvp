@@ -3,5 +3,17 @@
 #
 # Examples:
 #
+require 'faker'
+
+puts 'Creating 100 fake restaurants...'
+5.times do
+  restaurant = Restaurant.new(
+    name:    Faker::Company.name,
+    address: Faker::Address.street_address,
+    category: 'chinese'
+  )
+  restaurant.save!
+end
+puts 'Finished!'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
